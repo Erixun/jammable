@@ -41,8 +41,6 @@
 
 .Playlist-save:hover {
   background-color: var(--brand-color);
-  /* background-color: #41d26d; */
-  /* filter: brightness(105%); */
 }
 
 ::-webkit-scrollbar {

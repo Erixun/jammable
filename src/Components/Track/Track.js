@@ -4,12 +4,12 @@ import './Track.css';
 export class Track extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isRemoval: false }
-    this.renderAction = this.renderAction.bind(this)
+
+    this.addTrack = this.addTrack.bind(this)
   }
 
-  renderAction() {
-    this.setState({ isRemoval: !this.state.isRemoval })
+  addTrack() {
+    this.props.onAdd(this.props.track)
   }
 
   render() {
@@ -17,14 +17,14 @@ export class Track extends React.Component {
       <div className="Track">
         <div className="Track-information">
           <h3>
-            {this.props.name}
+            {this.props.track.name}
           </h3>
           <p>
-            {this.props.artist} | {this.props.album}
+            {this.props.track.artist} | {this.props.track.album}
           </p>
         </div>
-        <button className="Track-action" onClick={this.renderAction}>
-          {this.state.isRemoval ? '-' : '+'}
+        <button className="Track-action" onClick={this.addTrack}>
+          {this.props.isRemoval ? '-' : '+'}
         </button>
       </div>
     )

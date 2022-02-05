@@ -1,6 +1,7 @@
 body,
 html,
 #root {
+  --brand-color: #2dbf59;
   height: 100%;
 }
 
@@ -18,7 +19,7 @@ h1 {
 }
 
 h1 .highlight {
-  color: #6c41ec;
+  color: var(--brand-color);
 }
 
 h2 {
@@ -52,9 +53,9 @@ h2 {
 }
 
 /* React default styles */
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 /* .App-logo {
   height: 40vmin;

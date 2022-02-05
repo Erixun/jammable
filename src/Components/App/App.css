@@ -1,8 +1,9 @@
 body,
 html,
 #root {
-  --brand-color: #2dbf59;
   height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: black #323994;
 }
 
 html {
@@ -11,7 +12,8 @@ html {
 
 h1 {
   padding: .77rem 0;
-  background-color: #010c3f;
+  background-color: var(--bgc);
+  /* //#010c3f; */
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
@@ -52,22 +54,6 @@ h2 {
   }
 }
 
-/* React default styles */
-/* .App {
-  text-align: center;
-} */
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -82,12 +68,3 @@ h2 {
 .App-link {
   color: #61dafb;
 }
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

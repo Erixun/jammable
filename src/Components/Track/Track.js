@@ -2,9 +2,14 @@ import React from "react";
 import './Track.css';
 
 export class Track extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { isRemoval: false }
+    this.renderAction = this.renderAction.bind(this)
+  }
 
   renderAction() {
-    return <button className="Track-action">{this.state.isRemoval ? '-' : '+'}</button>
+    this.setState({ isRemoval: !this.state.isRemoval })
   }
 
   render() {
@@ -12,14 +17,14 @@ export class Track extends React.Component {
       <div className="Track">
         <div className="Track-information">
           <h3>
-            {/* <!-- track name will go here --> */}
+            {this.props.name}
           </h3>
           <p>
-            {/* <!-- track artist will go here--> | <!-- track album will go here --> */}
+            {this.props.artist} | {this.props.album}
           </p>
         </div>
-        <button className="Track-action">
-          {/* <!-- + or - will go here --> */}
+        <button className="Track-action" onClick={this.renderAction}>
+          {this.state.isRemoval ? '-' : '+'}
         </button>
       </div>
     )

@@ -3,7 +3,7 @@ var state = Math.trunc(Math.random() * 100000).toString()
 localStorage.setItem('stateKey', state);
 
 const client_id = '1e11b31ca91c432595167a7532979dd1';
-const redirect_uri = 'http://localhost:3000/';
+const redirect_uri = 'https://jammable-dev.surge.sh'//'http://localhost:3000/';
 const scope = 'user-read-private user-read-email playlist-modify-public';
 const accessUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${encodeURIComponent(client_id)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirect_uri)}&state=${encodeURIComponent(state)}`
 

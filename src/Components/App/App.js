@@ -3,15 +3,16 @@ import React from 'react';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { SearchResults } from '../SearchResults/SearchResults'
 import { Playlist } from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      searchResults: [{ name: 'Track of tracks', artist: 'Artistix', album: 'Album1', id: '1', uri: 'spotify:track:6rqhFgbbKlDb9MLmUQDhG6' }],
-      playListName: 'Best playlist',
-      playListTracks: [{ name: 'Crud & Grok', artist: 'Arson Care', album: 'Low Above', id: '2', uri: 'spotify:track:6rqhFgaqKwnb9MLmUQDhG6' }]
+      searchResults: [],
+      playListName: '',
+      playListTracks: [],
     }
 
     this.addTrack = this.addTrack.bind(this)
@@ -19,6 +20,10 @@ class App extends React.Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this)
     this.savePlaylist = this.savePlaylist.bind(this)
     this.search = this.search.bind(this)
+  }
+
+  componentDidMount() {
+    Spotify.getAccessToken()
   }
 
   addTrack(track) {
@@ -43,8 +48,9 @@ class App extends React.Component {
     console.log(trackURIs)
   }
 
-  search(term) {
-    console.log(term)
+  async search(term) {
+    const result = await Spotify.search(term)
+    this.setState({ searchResults: result })
   }
 
   render() {
